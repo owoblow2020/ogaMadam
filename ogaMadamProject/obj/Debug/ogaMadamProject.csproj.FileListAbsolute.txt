@@ -102,3 +102,5 @@ C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProje
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.csprojResolveAssemblyReference.cache
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.dll
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.pdb
+C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.initialmigration.resources
+C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.csproj.GenerateResource.Cache
