@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
@@ -14,8 +15,9 @@ namespace ogaMadamProject.Controllers
     public class ServiceController : ApiController
     {
         ErorrMessage error;
+        ServiceUtility util = new ServiceUtility();
 
-        public IHttpActionResult UserLogin(UserDTO UserRequest)
+        public async Task< IHttpActionResult> UserRegister(UserRegister UserRequest)
         {
             try
             {
@@ -24,8 +26,16 @@ namespace ogaMadamProject.Controllers
             }
             catch (Exception ex)
             {
-
+                error = new ErorrMessage()
+                {
+                    ResponseCode = 500,
+                    ResponseStatus = false,
+                    Message = ex.Message.ToString()
+                };
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, error));
             }
+
+            
 
             if (!ModelState.IsValid)
             {
@@ -40,22 +50,12 @@ namespace ogaMadamProject.Controllers
                     Message = message
                 };                
 
-                ResponseMessage(Request.CreateResponse(HttpStatusCode.Forbidden,error));
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.Forbidden, error));
             }
 
-            UserDTO UserResponse = utility.GetPosUser(UserRequest);
+            var response = util.UserRegister(UserRequest);
 
-            if (UserResponse == null)
-            {
-                return GetErrorMsg(2, "User Not Found");
-            }
-
-            if (UserResponse.MDAStation_ID == null)
-            {
-                return GetErrorMsg(2, "User Not Assigned to Station");
-            }
-
-            return Ok(UserResponse);
+            return Ok();
         }
 
         public void log(string obj)

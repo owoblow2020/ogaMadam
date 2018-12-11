@@ -13,6 +13,7 @@ namespace ogaMadamProject.Models
         bool disposed;
         private ApplicationDbContext _db;
 
+
         public ServiceUtility()
         {
             _db = new ApplicationDbContext();
@@ -20,13 +21,6 @@ namespace ogaMadamProject.Models
 
         public async Task< UserResponse > UserRegister(UserRegister userRequest)
         {
-            UserResponse response = new UserResponse();
-
-            var user = new ApplicationUser()
-            {
-               FirstName = userRequest.FirstName
-            };
-            var result = await UserManager.CreateAsync(user, userRequest);
             return null;
         }
 

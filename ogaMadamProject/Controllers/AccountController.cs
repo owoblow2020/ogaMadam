@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using ogaMadamProject.Models;
 using ogaMadamProject.Providers;
 using ogaMadamProject.Results;
+using System.Net;
 
 namespace ogaMadamProject.Controllers
 {
@@ -323,12 +324,33 @@ namespace ogaMadamProject.Controllers
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
+            SexType sex = 0;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            if (model.Sex.Equals("Female"))
+            {
+                sex = SexType.Female;
+            }
+
+            var user = new ApplicationUser()
+            {
+                UserName = model.FirstName + "." + model.LastName,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Address = model.Address,
+                DateOfBirth = Convert.ToDateTime(model.DateOfBirth),
+                PlaceOfBirth = model.PlaceOfBirth,
+                MiddleName = model.MiddleName,
+                PhoneNumber = model.PhoneNumber,
+                StateOfOrigin = model.StateOfOrigin,
+                CreatedAt = DateTime.Now,
+                Sex = sex,
+                UserType = UserType.Admin
+            };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -336,8 +358,14 @@ namespace ogaMadamProject.Controllers
             {
                 return GetErrorResult(result);
             }
+            var res = new ResponseModel()
+            {
+                 ResponseCode = 201,
+                 ResponseStatus = true,
+                 Message = "User sucessfully created"
+            };
 
-            return Ok();
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.Created, res));
         }
 
         // POST api/Account/RegisterExternal
