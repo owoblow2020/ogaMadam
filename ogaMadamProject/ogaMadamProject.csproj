@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201812102318509_initial migration.Designer.cs">
       <DependentUpon>201812102318509_initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812102353163_apsuser extra column.cs" />
+    <Compile Include="Migrations\201812102353163_apsuser extra column.Designer.cs">
+      <DependentUpon>201812102353163_apsuser extra column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -327,6 +331,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812102318509_initial migration.resx">
       <DependentUpon>201812102318509_initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812102353163_apsuser extra column.resx">
+      <DependentUpon>201812102353163_apsuser extra column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
