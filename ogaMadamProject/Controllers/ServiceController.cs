@@ -12,49 +12,15 @@ using System.Web.Http;
 
 namespace ogaMadamProject.Controllers
 {
+    [RoutePrefix("api/Service")]
     public class ServiceController : ApiController
     {
         ErorrMessage error;
         ServiceUtility util = new ServiceUtility();
 
-        public async Task< IHttpActionResult> UserRegister(UserRegister UserRequest)
+        [HttpGet]
+        public IHttpActionResult ListUsers()
         {
-            try
-            {
-                var json = JsonConvert.SerializeObject(UserRequest);
-                log(json);
-            }
-            catch (Exception ex)
-            {
-                error = new ErorrMessage()
-                {
-                    ResponseCode = 500,
-                    ResponseStatus = false,
-                    Message = ex.Message.ToString()
-                };
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, error));
-            }
-
-            
-
-            if (!ModelState.IsValid)
-            {
-                var message = string.Join(" | ", ModelState.Values
-                                .SelectMany(v => v.Errors)
-                                .Select(e => e.ErrorMessage));
-
-                error = new ErorrMessage()
-                {
-                    ResponseCode = 403,
-                    ResponseStatus = false,
-                    Message = message
-                };                
-
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.Forbidden, error));
-            }
-
-            var response = util.UserRegister(UserRequest);
-
             return Ok();
         }
 

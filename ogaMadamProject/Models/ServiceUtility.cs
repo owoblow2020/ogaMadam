@@ -19,11 +19,6 @@ namespace ogaMadamProject.Models
             _db = new ApplicationDbContext();
         }
 
-        public async Task< UserResponse > UserRegister(UserRegister userRequest)
-        {
-            return null;
-        }
-
 
         //generating ranmdom number
         public string RandomNumber()
