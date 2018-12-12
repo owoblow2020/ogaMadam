@@ -16,6 +16,7 @@ namespace ogaMadamProject.Models
             AspNetRoles = new HashSet<AspNetRole>();
         }
 
+        
         public string Id { get; set; }
 
         [StringLength(256)]
@@ -77,5 +78,8 @@ namespace ogaMadamProject.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+
+        
+        public virtual Employee EmployeeID { get; set; }
     }
 }

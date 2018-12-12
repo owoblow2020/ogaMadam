@@ -7,13 +7,13 @@ namespace ogaMadamProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initialmigration : IMigrationMetadata
+    public sealed partial class CreateFirstMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateFirstMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812102318509_initial migration"; }
+            get { return "201812121439114_CreateFirstMigration"; }
         }
         
         string IMigrationMetadata.Source

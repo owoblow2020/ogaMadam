@@ -239,13 +239,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812102318509_initial migration.cs" />
-    <Compile Include="Migrations\201812102318509_initial migration.Designer.cs">
-      <DependentUpon>201812102318509_initial migration.cs</DependentUpon>
+    <Compile Include="Migrations\201812121439114_CreateFirstMigration.cs" />
+    <Compile Include="Migrations\201812121439114_CreateFirstMigration.Designer.cs">
+      <DependentUpon>201812121439114_CreateFirstMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812102353163_apsuser extra column.cs" />
-    <Compile Include="Migrations\201812102353163_apsuser extra column.Designer.cs">
-      <DependentUpon>201812102353163_apsuser extra column.cs</DependentUpon>
+    <Compile Include="Migrations\201812121516404_CreateEmployeeTable.cs" />
+    <Compile Include="Migrations\201812121516404_CreateEmployeeTable.Designer.cs">
+      <DependentUpon>201812121516404_CreateEmployeeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -256,6 +256,7 @@
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\AuthRepository.cs" />
+    <Compile Include="Models\EntityModelTable.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\OgaMadamAdo.cs" />
     <Compile Include="Models\RequestModel.cs" />
@@ -346,11 +347,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812102318509_initial migration.resx">
-      <DependentUpon>201812102318509_initial migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812121439114_CreateFirstMigration.resx">
+      <DependentUpon>201812121439114_CreateFirstMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812102353163_apsuser extra column.resx">
-      <DependentUpon>201812102353163_apsuser extra column.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812121516404_CreateEmployeeTable.resx">
+      <DependentUpon>201812121516404_CreateEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
