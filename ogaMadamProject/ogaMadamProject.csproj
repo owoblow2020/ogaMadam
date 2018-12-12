@@ -255,6 +255,7 @@
     <Compile Include="Models\AspNetUser.cs" />
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\AuthRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\OgaMadamAdo.cs" />
     <Compile Include="Models\RequestModel.cs" />
@@ -262,6 +263,7 @@
     <Compile Include="Models\ServiceUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

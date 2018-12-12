@@ -18,11 +18,11 @@ namespace ogaMadamProject.Controllers
         ServiceUtility util = new ServiceUtility();
 
         [HttpGet]
-        public IHttpActionResult ListUsers()
+        public async Task<IHttpActionResult> ListUsers()
         {
             try
             {
-                var userList = util.ListUsers();
+                var userList = await util.ListUsers();
                 if (userList == null)
                 {
                     return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No user found")));

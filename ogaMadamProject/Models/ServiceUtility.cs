@@ -23,12 +23,15 @@ namespace ogaMadamProject.Models
             _db2 = new OgaMadamAdo();
         }
 
-        public IEnumerable<AspNetUserDto> ListUsers()
+        public Task<IEnumerable<AspNetUserDto>> ListUsers()
         {
-
-            return _db2.AspNetUsers.ToList().Select(Mapper.Map<AspNetUser, AspNetUserDto>);
+            return Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(1000);
+                return _db2.AspNetUsers.ToList().Select(Mapper.Map<AspNetUser, AspNetUserDto>); ;
+            });
         }
-        
+
         public string RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);
