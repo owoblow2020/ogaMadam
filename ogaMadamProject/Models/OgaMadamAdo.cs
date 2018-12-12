@@ -8,7 +8,7 @@ namespace ogaMadamProject.Models
     public partial class OgaMadamAdo : DbContext
     {
         public OgaMadamAdo()
-            : base("name=OgaMadamAdo")
+            : base("name=DefaultConnection")
         {
         }
 

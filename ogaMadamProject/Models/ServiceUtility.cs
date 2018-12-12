@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
+using ogaMadamProject.Dtos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,15 +14,21 @@ namespace ogaMadamProject.Models
     {
         bool disposed;
         private ApplicationDbContext _db;
+        private OgaMadamAdo _db2;
 
 
         public ServiceUtility()
         {
             _db = new ApplicationDbContext();
+            _db2 = new OgaMadamAdo();
         }
 
+        public IEnumerable<AspNetUserDto> ListUsers()
+        {
 
-        //generating ranmdom number
+            return _db2.AspNetUsers.ToList().Select(Mapper.Map<AspNetUser, AspNetUserDto>);
+        }
+        
         public string RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);

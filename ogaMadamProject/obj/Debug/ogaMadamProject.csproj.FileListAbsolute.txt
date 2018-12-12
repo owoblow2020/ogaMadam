@@ -105,3 +105,5 @@ C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProje
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.initialmigration.resources
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.csproj.GenerateResource.Cache
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.apsuserextracolumn.resources
+C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\bin\AutoMapper.dll
+C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\bin\AutoMapper.xml

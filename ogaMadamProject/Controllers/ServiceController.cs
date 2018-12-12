@@ -15,13 +15,50 @@ namespace ogaMadamProject.Controllers
     [RoutePrefix("api/Service")]
     public class ServiceController : ApiController
     {
-        ErorrMessage error;
         ServiceUtility util = new ServiceUtility();
 
         [HttpGet]
         public IHttpActionResult ListUsers()
         {
-            return Ok();
+            try
+            {
+                var userList = util.ListUsers();
+                if (userList == null)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No user found")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", userList));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
+        private ErorrMessage ErrorResponse(int num, string msg)
+        {
+            var error = new ErorrMessage()
+            {
+                ResponseCode = num,
+                ResponseStatus = false,
+                Message = msg
+            };
+
+            return error;
+        }
+
+        private ResponseModel SuccessResponse(int num, string msg, object obj)
+        {
+            var response = new ResponseModel()
+            {
+                ResponseCode = num,
+                ResponseStatus = true,
+                Message = msg,
+                Data = obj
+            };
+
+            return response;
         }
 
         public void log(string obj)
