@@ -48,16 +48,5 @@ namespace ogaMadamProject.Models
         }
     }
 
-    public enum SexType
-    {
-        Male,
-        Female
-    }
 
-    public enum UserType
-    {
-        Employee,
-        Employer,
-        Admin
-    }
 }

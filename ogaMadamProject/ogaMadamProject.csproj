@@ -243,9 +243,13 @@
     <Compile Include="Migrations\201812121439114_CreateFirstMigration.Designer.cs">
       <DependentUpon>201812121439114_CreateFirstMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812121516404_CreateEmployeeTable.cs" />
-    <Compile Include="Migrations\201812121516404_CreateEmployeeTable.Designer.cs">
-      <DependentUpon>201812121516404_CreateEmployeeTable.cs</DependentUpon>
+    <Compile Include="Migrations\201812130155306_createEmployeeAndEmployerTable.cs" />
+    <Compile Include="Migrations\201812130155306_createEmployeeAndEmployerTable.Designer.cs">
+      <DependentUpon>201812130155306_createEmployeeAndEmployerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812130912439_employerAndEmployeeTable.cs" />
+    <Compile Include="Migrations\201812130912439_employerAndEmployeeTable.Designer.cs">
+      <DependentUpon>201812130912439_employerAndEmployeeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -350,8 +354,11 @@
     <EmbeddedResource Include="Migrations\201812121439114_CreateFirstMigration.resx">
       <DependentUpon>201812121439114_CreateFirstMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812121516404_CreateEmployeeTable.resx">
-      <DependentUpon>201812121516404_CreateEmployeeTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812130155306_createEmployeeAndEmployerTable.resx">
+      <DependentUpon>201812130155306_createEmployeeAndEmployerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812130912439_employerAndEmployeeTable.resx">
+      <DependentUpon>201812130912439_employerAndEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

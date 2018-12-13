@@ -17,13 +17,10 @@ namespace ogaMadamProject.Models
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Employer> Employers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AspNetUser>()
-                .HasOptional(s => s.EmployeeID) // Mark EmployeeID property optional in Aspnetuser entity
-                .WithRequired(ad => ad.AspNetUserID);
-
             modelBuilder.Entity<AspNetRole>()
                 .HasMany(e => e.AspNetUsers)
                 .WithMany(e => e.AspNetRoles)

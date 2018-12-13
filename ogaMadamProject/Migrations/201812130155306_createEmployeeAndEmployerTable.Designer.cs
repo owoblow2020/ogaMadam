@@ -7,13 +7,13 @@ namespace ogaMadamProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CreateEmployeeTable : IMigrationMetadata
+    public sealed partial class createEmployeeAndEmployerTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateEmployeeTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createEmployeeAndEmployerTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812121516404_CreateEmployeeTable"; }
+            get { return "201812130155306_createEmployeeAndEmployerTable"; }
         }
         
         string IMigrationMetadata.Source

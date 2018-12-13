@@ -56,11 +56,13 @@ namespace ogaMadamProject.Models
 
         public string Address { get; set; }
 
-        public int Sex { get; set; }
+        public SexType Sex { get; set; }
+
+        public StatusType Status { get; set; }
 
         public string StateOfOrigin { get; set; }
 
-        public int UserType { get; set; }
+        public UserType UserType { get; set; }
 
         public bool IsEmailVerified { get; set; }
 
@@ -80,6 +82,26 @@ namespace ogaMadamProject.Models
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
 
         
-        public virtual Employee EmployeeID { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Employer Employer { get; set; }
+    }
+
+    public enum SexType
+    {
+        Male,
+        Female
+    }
+
+    public enum StatusType
+    {
+        Pending,
+        Active
+    }
+
+    public enum UserType
+    {
+        Employee,
+        Employer,
+        Admin
     }
 }
