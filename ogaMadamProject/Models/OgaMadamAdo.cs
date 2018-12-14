@@ -20,6 +20,7 @@ namespace ogaMadamProject.Models
         public virtual DbSet<Employer> Employers { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<Training> Trainings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

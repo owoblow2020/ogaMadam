@@ -25,6 +25,7 @@ namespace ogaMadamProject.Models
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Employer Employer { get; set; }
         public ICollection<Review> Review { get; set; }
+        public ICollection<Training> Training { get; set; }
     }
 
     public class Employer
@@ -60,6 +61,16 @@ namespace ogaMadamProject.Models
         public string ReviewId { get; set; }
         public string Details { get; set; }
         public int? Star { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public virtual Employee Employee { get; set; }
+    }
+
+    public class Training
+    {
+        public string TrainingId { get; set; }
+        public string TrainingType { get; set; }
+        public DateTime? TrainingDate { get; set; }
         public DateTime CreatedAt { get; set; }
 
         public virtual Employee Employee { get; set; }

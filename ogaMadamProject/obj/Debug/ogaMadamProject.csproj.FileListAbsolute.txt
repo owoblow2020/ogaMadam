@@ -110,3 +110,4 @@ C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProje
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.employerAndEmployeeTable.resources
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.TransactionAndEmployerTable.resources
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.ReviewandEmployeeTable.resources
+C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.TrainingAndEmployeeTable.resources
