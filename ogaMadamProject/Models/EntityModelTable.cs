@@ -26,6 +26,7 @@ namespace ogaMadamProject.Models
         public virtual Employer Employer { get; set; }
         public ICollection<Review> Review { get; set; }
         public ICollection<Training> Training { get; set; }
+        public ICollection<Report> Report { get; set; }
     }
 
     public class Employer
@@ -68,9 +69,21 @@ namespace ogaMadamProject.Models
 
     public class Training
     {
+        [Key]
         public string TrainingId { get; set; }
         public string TrainingType { get; set; }
         public DateTime? TrainingDate { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public virtual Employee Employee { get; set; }
+    }
+
+    public class Report
+    {
+        [Key]
+        public string ReportId { get; set; }
+        public string ReportType { get; set; }
+        public string Details { get; set; }
         public DateTime CreatedAt { get; set; }
 
         public virtual Employee Employee { get; set; }

@@ -263,6 +263,10 @@
     <Compile Include="Migrations\201812140123590_TrainingAndEmployeeTable.Designer.cs">
       <DependentUpon>201812140123590_TrainingAndEmployeeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812140137338_ReportAndEmployeeTable.cs" />
+    <Compile Include="Migrations\201812140137338_ReportAndEmployeeTable.Designer.cs">
+      <DependentUpon>201812140137338_ReportAndEmployeeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812140123590_TrainingAndEmployeeTable.resx">
       <DependentUpon>201812140123590_TrainingAndEmployeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140137338_ReportAndEmployeeTable.resx">
+      <DependentUpon>201812140137338_ReportAndEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
