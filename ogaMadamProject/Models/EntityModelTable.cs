@@ -101,4 +101,16 @@ namespace ogaMadamProject.Models
 
         public virtual Employee Employee { get; set; }
     }
+
+    public class Notification
+    {
+        [Key]
+        public string NotificationId { get; set; }
+        public string Details { get; set; }
+        public bool IsRead { get; set; }
+        public DateTime? NotificationDate { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public virtual AspNetUser AspNetUser { get; set; }
+    }
 }

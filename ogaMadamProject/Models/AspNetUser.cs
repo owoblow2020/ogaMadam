@@ -84,5 +84,6 @@ namespace ogaMadamProject.Models
         
         public virtual Employee Employee { get; set; }
         public virtual Employer Employer { get; set; }
+        public ICollection<Notification> Notification { get; set; }
     }
 }
