@@ -36,5 +36,20 @@ namespace ogaMadamProject.Models
 
         public virtual AspNetUser AspNetUser { get; set; }
         public ICollection<Employee> Employee { get; set; }
+        public ICollection<Transaction> Transaction { get; set; }
+    }
+
+    public class Transaction
+    {
+        [Key]
+        public string TransactionId { get; set; }
+        public DateTime? TransactionDate { get; set; }
+        public decimal Amount { get; set; }
+        public string PaymentCategory { get; set; }
+        public PaymentStatus PaymentStatus { get; set; }
+        public PaymentChannelType PaymentChannel { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public virtual Employer Employer { get; set; }
     }
 }

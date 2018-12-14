@@ -85,23 +85,4 @@ namespace ogaMadamProject.Models
         public virtual Employee Employee { get; set; }
         public virtual Employer Employer { get; set; }
     }
-
-    public enum SexType
-    {
-        Male,
-        Female
-    }
-
-    public enum StatusType
-    {
-        Pending,
-        Active
-    }
-
-    public enum UserType
-    {
-        Employee,
-        Employer,
-        Admin
-    }
 }

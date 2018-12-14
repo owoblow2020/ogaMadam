@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201812130912439_employerAndEmployeeTable.Designer.cs">
       <DependentUpon>201812130912439_employerAndEmployeeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812140033178_TransactionAndEmployerTable.cs" />
+    <Compile Include="Migrations\201812140033178_TransactionAndEmployerTable.Designer.cs">
+      <DependentUpon>201812140033178_TransactionAndEmployerTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -261,6 +265,7 @@
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\AuthRepository.cs" />
     <Compile Include="Models\EntityModelTable.cs" />
+    <Compile Include="Models\EnumUtitliy.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\OgaMadamAdo.cs" />
     <Compile Include="Models\RequestModel.cs" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812130912439_employerAndEmployeeTable.resx">
       <DependentUpon>201812130912439_employerAndEmployeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140033178_TransactionAndEmployerTable.resx">
+      <DependentUpon>201812140033178_TransactionAndEmployerTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
