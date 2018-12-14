@@ -27,6 +27,7 @@ namespace ogaMadamProject.Models
         public ICollection<Review> Review { get; set; }
         public ICollection<Training> Training { get; set; }
         public ICollection<Report> Report { get; set; }
+        public ICollection<Verification> Verification { get; set; }
     }
 
     public class Employer
@@ -84,6 +85,18 @@ namespace ogaMadamProject.Models
         public string ReportId { get; set; }
         public string ReportType { get; set; }
         public string Details { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public virtual Employee Employee { get; set; }
+    }
+
+    public class Verification
+    {
+        [Key]
+        public string VerificationId { get; set; }
+        public VerificationType VerificationType { get; set; }
+        public bool IsVerify { get; set; }
+        public DateTime? VerifyDate { get; set; }
         public DateTime CreatedAt { get; set; }
 
         public virtual Employee Employee { get; set; }

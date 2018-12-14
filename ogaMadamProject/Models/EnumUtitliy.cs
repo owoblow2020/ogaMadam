@@ -41,4 +41,10 @@ namespace ogaMadamProject.Models
         Pos,
         Cash
     }
+
+    public enum VerificationType
+    {
+        BVN,
+        NIMC
+    }
 }
