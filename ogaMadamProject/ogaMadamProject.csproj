@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201812140033178_TransactionAndEmployerTable.Designer.cs">
       <DependentUpon>201812140033178_TransactionAndEmployerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812140114390_ReviewandEmployeeTable.cs" />
+    <Compile Include="Migrations\201812140114390_ReviewandEmployeeTable.Designer.cs">
+      <DependentUpon>201812140114390_ReviewandEmployeeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -367,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812140033178_TransactionAndEmployerTable.resx">
       <DependentUpon>201812140033178_TransactionAndEmployerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140114390_ReviewandEmployeeTable.resx">
+      <DependentUpon>201812140114390_ReviewandEmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
