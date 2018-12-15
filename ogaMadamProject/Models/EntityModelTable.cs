@@ -18,8 +18,16 @@ namespace ogaMadamProject.Models
         public string EmployeeId { get; set; }
         public string BVN { get; set; }
         public string NIMC { get; set; }
-        public string ImageId { get; set; }
-        public DateTime? CreatedAt { get; set; }
+        public bool IsAttachedApproved { get; set; }
+        public DateTime? AttachedDate { get; set; }
+        public string BankName { get; set; }
+        public string AccountName { get; set; }
+        public string AccountNumber { get; set; }
+        public decimal SalaryAmount { get; set; }
+        public bool IsUserVerified { get; set; }
+        public bool IsTrained { get; set; }
+        public QualificationType QualificationType { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         
         public virtual AspNetUser AspNetUser { get; set; }
@@ -85,8 +93,10 @@ namespace ogaMadamProject.Models
         public string ReportId { get; set; }
         public string ReportType { get; set; }
         public string Details { get; set; }
+        public string EmployeeId { get; set; }
         public DateTime CreatedAt { get; set; }
 
+        [ForeignKey(nameof(EmployeeId))]
         public virtual Employee Employee { get; set; }
     }
 

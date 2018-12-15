@@ -58,7 +58,7 @@ namespace ogaMadamProject.Models
 
         public SexType Sex { get; set; }
 
-        public StatusType Status { get; set; }
+        public StatusType AccountStatus { get; set; }
 
         public string StateOfOrigin { get; set; }
 
@@ -68,7 +68,11 @@ namespace ogaMadamProject.Models
 
         public bool IsPhoneVerified { get; set; }
 
-        public bool IsUserVerified { get; set; }
+        public string CreatedBy { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
+
+        public string ModifiedBy { get; set; }
 
         public DateTime CreatedAt { get; set; }
 

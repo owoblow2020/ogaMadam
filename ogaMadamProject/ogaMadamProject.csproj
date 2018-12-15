@@ -275,6 +275,14 @@
     <Compile Include="Migrations\201812140219273_NotificationAndAspnetUserTable.Designer.cs">
       <DependentUpon>201812140219273_NotificationAndAspnetUserTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812150042191_AlterEmployeeWithAccount.cs" />
+    <Compile Include="Migrations\201812150042191_AlterEmployeeWithAccount.Designer.cs">
+      <DependentUpon>201812150042191_AlterEmployeeWithAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150106126_AddedNewFieldAspNetUser.cs" />
+    <Compile Include="Migrations\201812150106126_AddedNewFieldAspNetUser.Designer.cs">
+      <DependentUpon>201812150106126_AddedNewFieldAspNetUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -402,6 +410,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812140219273_NotificationAndAspnetUserTable.resx">
       <DependentUpon>201812140219273_NotificationAndAspnetUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150042191_AlterEmployeeWithAccount.resx">
+      <DependentUpon>201812150042191_AlterEmployeeWithAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150106126_AddedNewFieldAspNetUser.resx">
+      <DependentUpon>201812150106126_AddedNewFieldAspNetUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

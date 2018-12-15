@@ -28,7 +28,7 @@ namespace ogaMadamProject.Models
             return Task.Run(() =>
             {
                 System.Threading.Thread.Sleep(1000);
-                return _db2.AspNetUsers.ToList().Select(Mapper.Map<AspNetUser, AspNetUserDto>); ;
+                return _db2.AspNetUsers.ToList().Select(Mapper.Map<AspNetUser, AspNetUserDto>);
             });
         }
 

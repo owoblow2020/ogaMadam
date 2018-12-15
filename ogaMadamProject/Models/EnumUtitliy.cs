@@ -47,4 +47,19 @@ namespace ogaMadamProject.Models
         BVN,
         NIMC
     }
+
+    public enum QualificationType
+    {
+        Ssce,
+        Ond,
+        Hnd,
+        Bsc,
+        Msc
+    }
+
+    public enum ReportType
+    {
+        Medical,
+        Police
+    }
 }
