@@ -303,6 +303,10 @@
     <Compile Include="Migrations\201812150356066_AddedCategoryTable.Designer.cs">
       <DependentUpon>201812150356066_AddedCategoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812150421509_AddedInterviewTable.cs" />
+    <Compile Include="Migrations\201812150421509_AddedInterviewTable.Designer.cs">
+      <DependentUpon>201812150421509_AddedInterviewTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -451,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812150356066_AddedCategoryTable.resx">
       <DependentUpon>201812150356066_AddedCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150421509_AddedInterviewTable.resx">
+      <DependentUpon>201812150421509_AddedInterviewTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

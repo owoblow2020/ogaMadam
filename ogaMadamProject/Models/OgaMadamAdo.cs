@@ -27,6 +27,7 @@ namespace ogaMadamProject.Models
         public virtual DbSet<Upload> Uploads { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Interview> Interviews { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

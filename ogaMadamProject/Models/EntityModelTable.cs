@@ -28,11 +28,13 @@ namespace ogaMadamProject.Models
         public decimal SalaryAmount { get; set; }
         public bool IsUserVerified { get; set; }
         public bool IsTrained { get; set; }
+        public bool IsInterviewed { get; set; }
         public QualificationType QualificationType { get; set; }
         public DateTime CreatedAt { get; set; }
 
         
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual Interview Interview { get; set; }
         [ForeignKey(nameof(EmployerId))]
         public virtual Employer Employer { get; set; }
         [ForeignKey(nameof(CategoryId))]
@@ -211,5 +213,21 @@ namespace ogaMadamProject.Models
         public DateTime CreatedAt { get; set; }
 
         public ICollection<Employee> Employee { get; set; }
+    }
+
+    public class Interview
+    {
+        [Key]
+        [ForeignKey("Employee")]
+        public string InterviewId { get; set; }
+        public int Score { get; set; }
+        public bool IsPassed { get; set; }
+        public string Description { get; set; }
+        public string ModifiedBy { get; set; }
+        public string ModifiedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public virtual Employee Employee { get; set; }
     }
 }
