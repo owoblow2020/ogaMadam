@@ -283,6 +283,26 @@
     <Compile Include="Migrations\201812150106126_AddedNewFieldAspNetUser.Designer.cs">
       <DependentUpon>201812150106126_AddedNewFieldAspNetUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812150201149_ModifiedEmployer.cs" />
+    <Compile Include="Migrations\201812150201149_ModifiedEmployer.Designer.cs">
+      <DependentUpon>201812150201149_ModifiedEmployer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150237329_ModifiedAllTableAddCreatedBy.cs" />
+    <Compile Include="Migrations\201812150237329_ModifiedAllTableAddCreatedBy.Designer.cs">
+      <DependentUpon>201812150237329_ModifiedAllTableAddCreatedBy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150257559_AddedUploadTable.cs" />
+    <Compile Include="Migrations\201812150257559_AddedUploadTable.Designer.cs">
+      <DependentUpon>201812150257559_AddedUploadTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150332216_AddedSalaryTable.cs" />
+    <Compile Include="Migrations\201812150332216_AddedSalaryTable.Designer.cs">
+      <DependentUpon>201812150332216_AddedSalaryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150356066_AddedCategoryTable.cs" />
+    <Compile Include="Migrations\201812150356066_AddedCategoryTable.Designer.cs">
+      <DependentUpon>201812150356066_AddedCategoryTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -416,6 +436,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812150106126_AddedNewFieldAspNetUser.resx">
       <DependentUpon>201812150106126_AddedNewFieldAspNetUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150201149_ModifiedEmployer.resx">
+      <DependentUpon>201812150201149_ModifiedEmployer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150237329_ModifiedAllTableAddCreatedBy.resx">
+      <DependentUpon>201812150237329_ModifiedAllTableAddCreatedBy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150257559_AddedUploadTable.resx">
+      <DependentUpon>201812150257559_AddedUploadTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150332216_AddedSalaryTable.resx">
+      <DependentUpon>201812150332216_AddedSalaryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150356066_AddedCategoryTable.resx">
+      <DependentUpon>201812150356066_AddedCategoryTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
