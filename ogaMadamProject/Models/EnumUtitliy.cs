@@ -62,4 +62,16 @@ namespace ogaMadamProject.Models
         Medical,
         Police
     }
+
+    public enum TicketStatus
+    {
+        Open,
+        Closed
+    }
+
+    public enum ApiMode
+    {
+        Test,
+        Live
+    }
 }

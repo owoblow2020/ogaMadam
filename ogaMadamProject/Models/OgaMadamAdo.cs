@@ -28,6 +28,11 @@ namespace ogaMadamProject.Models
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Interview> Interviews { get; set; }
+        public virtual DbSet<Guarantor> Guarantors { get; set; }
+        public virtual DbSet<Ticket> Tickets { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<BillerSetting> BillerSettings { get; set; }
+        public virtual DbSet<ApiSetting> ApiSettings { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

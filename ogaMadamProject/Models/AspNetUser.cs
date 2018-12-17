@@ -90,5 +90,7 @@ namespace ogaMadamProject.Models
         public virtual Employer Employer { get; set; }
         public ICollection<Notification> Notification { get; set; }
         public ICollection<Upload> Upload { get; set; }
+        public ICollection<Comment> Comment { get; set; }
+        public ICollection<Ticket> Ticket { get; set; }
     }
 }

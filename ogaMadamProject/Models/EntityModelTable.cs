@@ -45,6 +45,7 @@ namespace ogaMadamProject.Models
         public ICollection<Verification> Verification { get; set; }
         public ICollection<Transaction> Transaction { get; set; }
         public ICollection<Salary> Salary { get; set; }
+        public ICollection<Guarantor> Guarantor { get; set; }
     }
 
     public class Employer
@@ -229,5 +230,88 @@ namespace ogaMadamProject.Models
         public DateTime CreatedAt { get; set; }
 
         public virtual Employee Employee { get; set; }
+    }
+
+    public class Guarantor
+    {
+        [Key]
+        public string GuarantorId { get; set; }
+        public string EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string PlaceOfWork { get; set; }
+
+        [ForeignKey(nameof(EmployeeId))]
+        public virtual Employee Employee { get; set; }
+    }
+
+    public class Ticket
+    {
+        [Key]
+        public string TicketId { get; set; }
+        public string AspNetUserId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public TicketStatus status { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        [ForeignKey(nameof(AspNetUserId))]
+        public virtual AspNetUser AspNetUser { get; set; }
+
+        public virtual ICollection<Comment> Comment { get; set; }
+    }
+
+    public class Comment
+    {
+        [Key]
+        public string CommentId { get; set; }
+        public string TicketId { get; set; }
+        public string AspNetUserId { get; set; }
+        public string Description { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        [ForeignKey(nameof(AspNetUserId))]
+        public virtual AspNetUser AspNetUser { get; set; }
+
+        [ForeignKey(nameof(TicketId))]
+        public virtual Ticket Ticket { get; set; }
+    }
+
+    public class BillerSetting
+    {
+        [Key]
+        public string BillerId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+
+        public virtual ICollection<ApiSetting> ApiSetting { get; set; }
+    }
+
+    public class ApiSetting
+    {
+        [Key]
+        public string ApiSettingId { get; set; }
+        public string BillerSettingId { get; set; }
+        public string Uri { get; set; }
+        public string Token { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public ApiMode Mode { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        [ForeignKey(nameof(BillerSettingId))]
+        public virtual BillerSetting BillerSetting { get; set; }
+
     }
 }

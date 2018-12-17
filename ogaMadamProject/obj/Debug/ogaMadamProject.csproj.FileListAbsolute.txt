@@ -122,3 +122,4 @@ C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProje
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.AddedSalaryTable.resources
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.AddedCategoryTable.resources
 C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.AddedInterviewTable.resources
+C:\Users\Eze\Documents\Visual Studio 2017\Projects\ogaMadamProject\ogaMadamProject\obj\Debug\ogaMadamProject.Migrations.GuarantorTicketCommentAndBillerseting.resources

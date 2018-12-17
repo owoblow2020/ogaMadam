@@ -307,6 +307,10 @@
     <Compile Include="Migrations\201812150421509_AddedInterviewTable.Designer.cs">
       <DependentUpon>201812150421509_AddedInterviewTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812162345106_GuarantorTicketCommentAndBillerseting.cs" />
+    <Compile Include="Migrations\201812162345106_GuarantorTicketCommentAndBillerseting.Designer.cs">
+      <DependentUpon>201812162345106_GuarantorTicketCommentAndBillerseting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -458,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812150421509_AddedInterviewTable.resx">
       <DependentUpon>201812150421509_AddedInterviewTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812162345106_GuarantorTicketCommentAndBillerseting.resx">
+      <DependentUpon>201812162345106_GuarantorTicketCommentAndBillerseting.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
