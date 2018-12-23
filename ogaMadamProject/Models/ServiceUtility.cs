@@ -104,7 +104,7 @@ namespace ogaMadamProject.Models
             });
         }
 
-        public void SendEmailSms(EmailSmsRequest dataRequest)
+        public Task<string> SendEmailSms(EmailSmsRequest dataRequest)
         {
             try
             {
@@ -116,6 +116,7 @@ namespace ogaMadamProject.Models
                 if (!string.IsNullOrEmpty(dataRequest.Phone))
                 {
                     //send sms
+
                 }
             }
             catch (Exception)
@@ -123,6 +124,7 @@ namespace ogaMadamProject.Models
 
                 throw;
             }
+            return null;
         }
 
         public string RandomNumber()
