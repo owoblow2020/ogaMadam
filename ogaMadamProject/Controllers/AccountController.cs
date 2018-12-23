@@ -420,7 +420,7 @@ namespace ogaMadamProject.Controllers
                 StateOfOrigin = model.StateOfOrigin,
                 CreatedAt = DateTime.Now,
                 Sex = sex,
-                UserType = UserType.Admin
+                UserType = UserType.Employee
             };
 
             //verifiy user BVN

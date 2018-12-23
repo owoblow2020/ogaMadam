@@ -93,6 +93,27 @@ namespace ogaMadamProject.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IHttpActionResult VerifyEmail(string id, string hashParam)
+        {
+            try
+            {
+
+                var verifyResponse = util.VerifyEmail(id, hashParam);
+                if (! verifyResponse)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "Unable to send")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", verifyResponse));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
         private ErorrMessage ErrorResponse(int num, string msg)
         {
             var error = new ErorrMessage()

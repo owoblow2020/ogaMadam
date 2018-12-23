@@ -104,6 +104,19 @@ namespace ogaMadamProject.Models
             });
         }
 
+        public bool VerifyEmail(string id, string hashParam)
+        {
+            var user = _db2.AspNetUsers.FirstOrDefault(o => o.Id == id);
+            var hashKey = Crypto.Hash(user.PhoneNumber + user.Email + user.FirstName);
+            if (hashKey.Equals(hashParam))
+            {
+                user.IsEmailVerified = true;
+                _db2.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public Task<string> SendEmailSms(EmailSmsRequest dataRequest)
         {
             try
