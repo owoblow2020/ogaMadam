@@ -22,4 +22,11 @@ namespace ogaMadamProject.Dtos
         public bool IsUserVerified { get; set; }
         public string CreatedAt { get; set; }
     }
+
+    public class CategoryDto
+    {
+        public string CategoryId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
 }

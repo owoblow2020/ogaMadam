@@ -32,6 +32,15 @@ namespace ogaMadamProject.Models
             });
         }
 
+        public Task<IEnumerable<CategoryDto>> ListCategory()
+        {
+            return Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(1000);
+                return _db2.Categories.ToList().Select(Mapper.Map<Category, CategoryDto>);
+            });
+        }
+
         public string RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);
