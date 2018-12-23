@@ -13,6 +13,14 @@ namespace ogaMadamProject.Models
         public object Data { get; set; }
     }
 
+    public class UserReponseModel
+    {
+        public int ResponseCode { get; set; }
+        public bool ResponseStatus { get; set; }
+        public string Message { get; set; }
+        public string UserId { get; set; }
+    }
+
     public class ErorrMessage
     {
         public int ResponseCode { get; set; }

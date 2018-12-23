@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using AutoMapper;
+using Newtonsoft.Json;
+using ogaMadamProject.Dtos;
 using ogaMadamProject.Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +26,7 @@ namespace ogaMadamProject.Controllers
             try
             {
                 var userList = await util.ListUsers();
-                if (userList == null)
+                if (userList.Count() == 0)
                 {
                     return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No user found")));
                 }
@@ -81,7 +83,7 @@ namespace ogaMadamProject.Controllers
             return response;
         }
 
-        public void log(string obj)
+        public static void log(string obj)
         {
 
             string sPathName = HttpContext.Current.Server.MapPath("/log.txt");

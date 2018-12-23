@@ -17,6 +17,8 @@ using ogaMadamProject.Models;
 using ogaMadamProject.Providers;
 using ogaMadamProject.Results;
 using System.Net;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace ogaMadamProject.Controllers
 {
@@ -26,6 +28,11 @@ namespace ogaMadamProject.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+
+        ServiceUtility util = new ServiceUtility();
+        public static string DefaultPassword = "1234567aD#";
+
+
 
         public AccountController()
         {
@@ -337,7 +344,7 @@ namespace ogaMadamProject.Controllers
 
             var user = new ApplicationUser()
             {
-                UserName = model.FirstName + "." + model.LastName,
+                UserName = model.Email,
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -358,11 +365,101 @@ namespace ogaMadamProject.Controllers
             {
                 return GetErrorResult(result);
             }
-            var res = new ResponseModel()
+            var res = new UserReponseModel()
             {
                  ResponseCode = 201,
                  ResponseStatus = true,
-                 Message = "User sucessfully created"
+                 Message = "User sucessfully created",
+                 UserId = user.Id
+
+            };
+
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.Created, res));
+        }
+
+        
+        public async Task<IHttpActionResult> RegisterEmployee(RegisterModel model)
+        {
+            SexType sex = 0;
+
+            var json = JsonConvert.SerializeObject(model);
+            ServiceController.log(json);
+
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join(" | ", ModelState.Values
+                                .SelectMany(v => v.Errors)
+                                .Select(e => e.ErrorMessage));
+
+                var error = new ErorrMessage()
+                {
+                    ResponseCode = 403,
+                    ResponseStatus = false,
+                    Message = message
+                };
+
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.Forbidden, error));
+            }
+
+            if (model.Sex.Equals("Female"))
+            {
+                sex = SexType.Female;
+            }
+
+            var user = new ApplicationUser()
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Address = model.Address,
+                DateOfBirth = Convert.ToDateTime(model.DateOfBirth),
+                PlaceOfBirth = model.PlaceOfBirth,
+                MiddleName = model.MiddleName,
+                PhoneNumber = model.PhoneNumber,
+                StateOfOrigin = model.StateOfOrigin,
+                CreatedAt = DateTime.Now,
+                Sex = sex,
+                UserType = UserType.Admin
+            };
+
+            //verifiy user BVN
+            var isBvnVerify = util.VerifyBVN(model.ExtraData.BVN);
+            //if (! isBvnVerify)
+            //{
+            //    var error = new ErorrMessage()
+            //    {
+            //        ResponseCode = 403,
+            //        ResponseStatus = false,
+            //        Message = "Invalid bvn | please contact your bank"
+            //    };
+
+            //    return ResponseMessage(Request.CreateResponse(HttpStatusCode.Forbidden, error));
+            //}
+
+            IdentityResult result = await UserManager.CreateAsync(user, DefaultPassword);
+
+            if (!result.Succeeded)
+            {
+                var error = new ErorrMessage()
+                {
+                    ResponseCode = 403,
+                    ResponseStatus = false,
+                    Message = "Unable to create User"
+                };
+
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.Forbidden, error));
+            }
+
+            var employee = util.RegisterEmployee(model, user.Id);
+
+            var res = new UserReponseModel()
+            {
+                ResponseCode = 201,
+                ResponseStatus = true,
+                Message = "User sucessfully created",
+                UserId = user.Id
+
             };
 
             return ResponseMessage(Request.CreateResponse(HttpStatusCode.Created, res));

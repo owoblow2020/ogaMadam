@@ -16,6 +16,7 @@ namespace ogaMadamProject.App_Start
             Mapper.CreateMap<AspNetUserDto, AspNetUser>();
 
             Mapper.CreateMap<Category, CategoryDto>();
+            Mapper.CreateMap<AspNetUserDto, RegisterBindingModel>();
         }
     }
 }

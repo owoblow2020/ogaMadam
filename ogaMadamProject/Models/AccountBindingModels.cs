@@ -59,6 +59,35 @@ namespace ogaMadamProject.Models
         public string Sex { get; set; }
     }
 
+    public class RegisterModel
+    {
+
+        public string Email { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        public string MiddleName { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public string StateOfOrigin { get; set; }
+        [Required]
+        public string PhoneNumber { get; set; }
+        public string Sex { get; set; }
+        public ExtraEmployeeData ExtraData { get; set; }
+    }
+
+    public class ExtraEmployeeData
+    {
+        [Required]
+        public string BVN { get; set; }
+        [Required]
+        public string NIMC { get; set; }
+        [Required]
+        public string QualificationType { get; set; }
+    }
+
     public class RegisterExternalBindingModel
     {
         [Required]

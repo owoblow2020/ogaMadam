@@ -24,7 +24,6 @@ namespace ogaMadamProject.Models
         public UserType UserType { get; set; }
         public bool IsEmailVerified { get; set; }
         public bool IsPhoneVerified { get; set; }
-        public bool IsUserVerified { get; set; }
         public DateTime CreatedAt { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
