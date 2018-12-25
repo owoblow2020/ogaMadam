@@ -11,6 +11,17 @@ namespace ogaMadamProject.Models
     {
     }
 
+    [Table("igr_collections.aspnetuserroles")]
+    public partial class aspnetuserrole
+    {
+        [Key]
+        [Column(Order = 0)]
+        public string UserId { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        public string RoleId { get; set; }
+    }
+
     public class Employee
     {
         [Key]

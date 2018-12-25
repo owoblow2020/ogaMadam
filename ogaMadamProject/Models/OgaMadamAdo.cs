@@ -33,6 +33,7 @@ namespace ogaMadamProject.Models
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<BillerSetting> BillerSettings { get; set; }
         public virtual DbSet<ApiSetting> ApiSettings { get; set; }
+        public virtual DbSet<aspnetuserrole> AspNetUserRoles { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

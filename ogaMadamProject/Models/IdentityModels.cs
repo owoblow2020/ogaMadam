@@ -21,6 +21,7 @@ namespace ogaMadamProject.Models
         public string Address { get; set; }
         public SexType Sex { get; set; }
         public string StateOfOrigin { get; set; }
+        public StatusType AccountStatus { get; set; }
         public UserType UserType { get; set; }
         public bool IsEmailVerified { get; set; }
         public bool IsPhoneVerified { get; set; }

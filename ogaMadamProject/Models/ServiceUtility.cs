@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using ogaMadamProject.Controllers;
 using ogaMadamProject.Dtos;
 using System;
@@ -18,12 +19,15 @@ namespace ogaMadamProject.Models
         bool disposed;
         private ApplicationDbContext _db;
         private OgaMadamAdo _db2;
+        private Ado1 _db3;
+       
 
 
         public ServiceUtility()
         {
             _db = new ApplicationDbContext();
             _db2 = new OgaMadamAdo();
+            _db3 = new Ado1();
         }
 
         public Task<IEnumerable<AspNetUserDto>> ListUsers()
@@ -146,6 +150,76 @@ namespace ogaMadamProject.Models
             string rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000).ToString();
 
             return rNum;
+        }
+
+        public ResponseModel EmployeeLoginAsync(EmployeeLoginDto requestParam)
+        {
+            ResponseModel res = new ResponseModel();
+            var userStore = new UserStore<ApplicationUser>(_db);
+            var manager = new UserManager<ApplicationUser>(userStore);
+
+            var result = manager.Find(requestParam.Email, requestParam.Password);
+            var employeeData = _db2.Employees.FirstOrDefault(o=>o.EmployeeId == result.Id);
+            var uploadInfo = _db2.Uploads.Where(o => o.UploadId == result.Id).ToList();
+
+
+            //check if user login successfully
+            if (result == null)
+            {
+                return res;
+            }
+            var roleId = _db3.AspNetUserRoles.FirstOrDefault(o => o.UserId == result.Id);
+            var role = _db2.AspNetRoles.FirstOrDefault(o => o.Id == roleId.RoleId);
+
+            IList<UploadDto> uploadDtos = new List<UploadDto>();
+            foreach (var item in uploadInfo)
+            {
+                var uploadId = new UploadDto()
+                {
+                    UploadId = item.UploadId
+                };
+                uploadDtos.Add(uploadId);
+            }
+
+            //check if account is activated
+            if (result.AccountStatus == StatusType.Pending)
+            {
+                res.Data = "pending";
+                return res;
+            }
+
+            var user = new EmployeeLoginDto()
+            {
+                Address = result.Address,
+                DateOfBirth = result.DateOfBirth,
+                Email = result.Email,
+                FirstName = result.FirstName,
+                LastName = result.LastName,
+                MiddleName = result.MiddleName,
+                Password = requestParam.Password,
+                PhoneNumber = result.PhoneNumber,
+                PlaceOfBirth = result.PlaceOfBirth,
+                StateOfOrigin = result.StateOfOrigin,
+                
+            };
+            user.Upload = uploadDtos;
+            if (employeeData != null)
+            {
+                user.BVN = employeeData.BVN;
+                user.NIMC = employeeData.NIMC;
+            }
+            if (result.Sex == SexType.Male)
+            {
+                user.Sex = "Male";
+            }
+            else
+            {
+                user.Sex = "Female";
+            }
+
+            res.Data = user;
+            return res;
+            
         }
 
         protected virtual void Dispose(bool disposing)

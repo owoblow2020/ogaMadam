@@ -63,6 +63,9 @@ namespace ogaMadamProject.Controllers
         {
             try
             {
+                var json = JsonConvert.SerializeObject(dataRequest);
+                log(json);
+
                 if (!ModelState.IsValid)
                 {
                     var message = string.Join(" | ", ModelState.Values
@@ -107,6 +110,35 @@ namespace ogaMadamProject.Controllers
                 }
 
                 return Ok(SuccessResponse(200, "successful", verifyResponse));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IHttpActionResult EmployeeLogin(EmployeeLoginDto requestParam)
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(requestParam);
+                log(json);
+
+                var employeeResponse = util.EmployeeLoginAsync(requestParam);
+                if (employeeResponse.Data == null)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "Invalid userame and password")));
+                }
+
+                if (employeeResponse.Data.Equals("pending"))
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "Account is pending")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", employeeResponse.Data));
             }
             catch (Exception ex)
             {

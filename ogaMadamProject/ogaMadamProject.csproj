@@ -311,14 +311,20 @@
     <Compile Include="Migrations\201812162345106_GuarantorTicketCommentAndBillerseting.Designer.cs">
       <DependentUpon>201812162345106_GuarantorTicketCommentAndBillerseting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812250357305_CreateAspNetUserRole.cs" />
+    <Compile Include="Migrations\201812250357305_CreateAspNetUserRole.Designer.cs">
+      <DependentUpon>201812250357305_CreateAspNetUserRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ado.cs" />
+    <Compile Include="Models\Ado1.cs" />
     <Compile Include="Models\AspNetRole.cs" />
     <Compile Include="Models\AspNetUser.cs" />
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\AuthRepository.cs" />
     <Compile Include="Models\EntityModelTable.cs" />
     <Compile Include="Models\EnumUtitliy.cs" />
@@ -465,6 +471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812162345106_GuarantorTicketCommentAndBillerseting.resx">
       <DependentUpon>201812162345106_GuarantorTicketCommentAndBillerseting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812250357305_CreateAspNetUserRole.resx">
+      <DependentUpon>201812250357305_CreateAspNetUserRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
