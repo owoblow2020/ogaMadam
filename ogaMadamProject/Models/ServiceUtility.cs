@@ -222,13 +222,81 @@ namespace ogaMadamProject.Models
             
         }
 
+        public IList<EmployeeDto> ListEmployee()
+        {
+            var users = _db2.AspNetUsers.ToList();
+            IList<EmployeeDto> userList = new List<EmployeeDto>();
+            foreach (var user in users)
+            {
+                if (user.Employee != null)
+                {
+                    var list = new EmployeeDto()
+                    {
+                        Id = user.Id,
+                        Address = user.Address,
+                        DateOfBirth = user.DateOfBirth.ToString(),
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        MiddleName = user.MiddleName,
+                        PhoneNumber = user.PhoneNumber,
+                        PlaceOfBirth = user.PlaceOfBirth,
+                        StateOfOrigin = user.StateOfOrigin,
+                        AccountName = user.Employee.AccountName,
+                        AccountNumber = user.Employee.AccountNumber,
+                        AttachedDate = user.Employee.AttachedDate,
+                        BankName = user.Employee.BankName,
+                        BVN = user.Employee.BVN,
+                        IsAttachedApproved = user.Employee.IsAttachedApproved,
+                        IsInterviewed = user.Employee.IsInterviewed,
+                        IsTrained = user.Employee.IsTrained,
+                        IsUserVerified = user.Employee.IsUserVerified,
+                        NIMC= user.Employee.NIMC,
+                        SalaryAmount = user.Employee.SalaryAmount 
+                    };
+
+                    switch (user.Employee.QualificationType)
+                    {
+                        case QualificationType.Ssce:
+                            list.QualificationType = "Ssce";
+                            break;
+                        case QualificationType.Ond:
+                            list.QualificationType = "Ond";
+                            break;
+                        case QualificationType.Hnd:
+                            list.QualificationType = "Hnd";
+                            break;
+                        case QualificationType.Bsc:
+                            list.QualificationType = "Bsc";
+                            break;
+                        case QualificationType.Msc:
+                            list.QualificationType = "Msc";
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (user.Sex == SexType.Male)
+                    {
+                        list.Sex = "Male";
+                    }
+                    else
+                    {
+                        list.Sex = "Female";
+                    }
+                    userList.Add(list);
+                }
+            }
+            return userList;
+
+        }
+
         public IList<EmployeeDto> ListVerifyEmployee()
         {
             var users = _db2.AspNetUsers.ToList();
             IList<EmployeeDto> userList = new List<EmployeeDto>();
             foreach (var user in users)
             {
-                var id = user.Id;
                 if (user.Employee != null && user.Employee.IsUserVerified == true)
                 {
                     var list = new EmployeeDto()
@@ -242,8 +310,41 @@ namespace ogaMadamProject.Models
                         MiddleName = user.MiddleName,
                         PhoneNumber = user.PhoneNumber,
                         PlaceOfBirth = user.PlaceOfBirth,
-                        StateOfOrigin = user.StateOfOrigin
+                        StateOfOrigin = user.StateOfOrigin,
+
+                        AccountName = user.Employee.AccountName,
+                        AccountNumber = user.Employee.AccountNumber,
+                        AttachedDate = user.Employee.AttachedDate,
+                        BankName = user.Employee.BankName,
+                        BVN = user.Employee.BVN,
+                        IsAttachedApproved = user.Employee.IsAttachedApproved,
+                        IsInterviewed = user.Employee.IsInterviewed,
+                        IsTrained = user.Employee.IsTrained,
+                        IsUserVerified = user.Employee.IsUserVerified,
+                        NIMC = user.Employee.NIMC,
+                        SalaryAmount = user.Employee.SalaryAmount
                     };
+
+                    switch (user.Employee.QualificationType)
+                    {
+                        case QualificationType.Ssce:
+                            list.QualificationType = "Ssce";
+                            break;
+                        case QualificationType.Ond:
+                            list.QualificationType = "Ond";
+                            break;
+                        case QualificationType.Hnd:
+                            list.QualificationType = "Hnd";
+                            break;
+                        case QualificationType.Bsc:
+                            list.QualificationType = "Bsc";
+                            break;
+                        case QualificationType.Msc:
+                            list.QualificationType = "Msc";
+                            break;
+                        default:
+                            break;
+                    }
 
                     if (user.Sex == SexType.Male)
                     {

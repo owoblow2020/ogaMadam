@@ -43,6 +43,18 @@ namespace ogaMadamProject.Dtos
         public string Sex { get; set; }
         public string StateOfOrigin { get; set; }
 
+        public string BVN { get; set; }
+        public string NIMC { get; set; }
+        public bool IsAttachedApproved { get; set; }
+        public DateTime? AttachedDate { get; set; }
+        public string BankName { get; set; }
+        public string AccountName { get; set; }
+        public string AccountNumber { get; set; }
+        public decimal SalaryAmount { get; set; }
+        public bool IsUserVerified { get; set; }
+        public bool IsTrained { get; set; }
+        public bool IsInterviewed { get; set; }
+        public string QualificationType { get; set; }
 
     }
 

@@ -148,22 +148,41 @@ namespace ogaMadamProject.Controllers
         [HttpGet]
         public IHttpActionResult ListVerifyEmployee()
         {
-            var verifyEmployees = util.ListVerifyEmployee();
-            if (verifyEmployees.Count() == 0)
+            try
             {
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No Employee found")));
+
+                var verifyEmployees = util.ListVerifyEmployee();
+                if (verifyEmployees.Count() == 0)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No Employee found")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", verifyEmployees));
             }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
 
-            return Ok(SuccessResponse(200, "successful", verifyEmployees));
-            //try
-            //{
+        [HttpGet]
+        public IHttpActionResult ListEmployee()
+        {
+            try
+            {
 
+                var verifyEmployees = util.ListEmployee();
+                if (verifyEmployees.Count() == 0)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No Employee found")));
+                }
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
-            //}
+                return Ok(SuccessResponse(200, "successful", verifyEmployees));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
         }
 
         private ErorrMessage ErrorResponse(int num, string msg)
