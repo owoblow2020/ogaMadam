@@ -208,3 +208,21 @@ New Log Entry:
 {"Email":"admin5@yahoo.com","Password":"1234567aD#","PhoneNumber":null,"FirstName":null,"LastName":null,"MiddleName":null,"PlaceOfBirth":null,"DateOfBirth":null,"Address":null,"Sex":null,"StateOfOrigin":null,"BVN":null,"NIMC":null,"Upload":null}
 __________________________
  
+
+New Log Entry: 
+12/26/2018 7:23:38 PM
+{"TransactionId":"1234566","TransactionDate":"2018/12/23","Amount":"20000","PaymentCategory":"Payment of employee","PaymentStatus":"Sucessful","PaymentChannel":"Web","EmployeeId":"c7cbaa59-1bfb-484a-9e23-fd077196527e","EmployerId":"cf1dd186-d4ad-4536-9c31-9dd0ca62d997","SalaryDay":"03","SaleryMonth":"12","SalaryYear":"2018"}
+__________________________
+ 
+
+New Log Entry: 
+12/26/2018 7:28:39 PM
+{"TransactionId":"12345667","TransactionDate":"2018/12/23","Amount":"20000","PaymentCategory":"Payment of employee","PaymentStatus":"Sucessful","PaymentChannel":"Web","EmployeeId":"c7cbaa59-1bfb-484a-9e23-fd077196527e","EmployerId":"cf1dd186-d4ad-4536-9c31-9dd0ca62d997","SalaryDay":"03","SaleryMonth":"12","SalaryYear":"2018"}
+__________________________
+ 
+
+New Log Entry: 
+12/26/2018 7:30:10 PM
+{"TransactionId":"12345667","TransactionDate":"2018/12/23","Amount":"20000","PaymentCategory":"Payment of employee","PaymentStatus":"Successful","PaymentChannel":"Web","EmployeeId":"c7cbaa59-1bfb-484a-9e23-fd077196527e","EmployerId":"cf1dd186-d4ad-4536-9c31-9dd0ca62d997","SalaryDay":"03","SaleryMonth":"12","SalaryYear":"2018"}
+__________________________
+ 

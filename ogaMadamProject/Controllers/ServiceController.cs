@@ -145,6 +145,28 @@ namespace ogaMadamProject.Controllers
             }
         }
 
+        [HttpPost]
+        public IHttpActionResult PayTransaction(TransactionDto requestParam)
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(requestParam);
+                log(json);
+
+                var transactionResponse = util.PayTransaction(requestParam);
+                if (! transactionResponse)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "Unable to capture record")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", transactionResponse));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
         [HttpGet]
         public IHttpActionResult ListVerifyEmployee()
         {

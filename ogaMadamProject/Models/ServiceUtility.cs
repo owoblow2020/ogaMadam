@@ -222,6 +222,72 @@ namespace ogaMadamProject.Models
             
         }
 
+        public bool PayTransaction(TransactionDto requestParam)
+        {
+            var trans = new Transaction()
+            {
+                Amount = Convert.ToDecimal(requestParam.Amount),
+                EmployeeId = requestParam.EmployeeId,
+                EmployerId = requestParam.EmployerId,
+                PaymentCategory = requestParam.PaymentCategory,
+                TransactionDate = Convert.ToDateTime(requestParam.TransactionDate),
+                TransactionId = requestParam.TransactionId,
+                CreatedAt = DateTime.Now
+            };
+
+            switch (requestParam.PaymentChannel)
+            {
+                case "Web":
+                    trans.PaymentChannel = PaymentChannelType.Web;
+                    break;
+                case "Pos":
+                    trans.PaymentChannel = PaymentChannelType.Pos;
+                    break;
+                case "Cash":
+                    trans.PaymentChannel = PaymentChannelType.Cash;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (requestParam.PaymentStatus)
+            {
+                case "Failed":
+                    trans.PaymentStatus = PaymentStatus.Failed;
+                    break;
+                case "Successful":
+                    trans.PaymentStatus = PaymentStatus.Successful;
+                    break;
+                case "pending":
+                    trans.PaymentStatus = PaymentStatus.pending;
+                    break;
+                default:
+                    break;
+            }
+
+            var transSave = _db2.Transactions.Add(trans);
+            if (_db2.SaveChanges() == 1)
+            {
+                var salaryParam = new Salary()
+                {
+                    EmployeeId = requestParam.EmployeeId,
+                    EmployerId = requestParam.EmployerId,
+                    Month = Convert.ToInt32(requestParam.SaleryMonth),
+                    Day = Convert.ToInt32(requestParam.SalaryDay),
+                    Year = Convert.ToInt32(requestParam.SalaryYear),
+                    TotalAmount = Convert.ToDecimal(requestParam.Amount),
+                    SalaryId = requestParam.TransactionId,
+                    CreatedAt = DateTime.Now
+                };
+                _db2.Salaries.Add(salaryParam);
+                _db2.SaveChanges();
+
+                return true;
+            }
+            return false;
+
+        }
+
         public IList<EmployeeDto> ListEmployee()
         {
             var users = _db2.AspNetUsers.ToList();

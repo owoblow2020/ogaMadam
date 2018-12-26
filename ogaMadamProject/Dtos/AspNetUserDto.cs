@@ -145,4 +145,28 @@ namespace ogaMadamProject.Dtos
     {
         public string UploadId { get; set; }
     }
+
+    public class TransactionDto
+    {
+        [Required]
+        public string TransactionId { get; set; }
+        [Required]
+        public string TransactionDate { get; set; }
+        [Required]
+        public string Amount { get; set; }
+        public string PaymentCategory { get; set; }
+        [Required]
+        public string PaymentStatus { get; set; }
+        public string PaymentChannel { get; set; }
+        [Required]
+        public string EmployeeId { get; set; }
+        [Required]
+        public string EmployerId { get; set; }
+        [Required]
+        public string SalaryDay { get; set; }
+        [Required]
+        public string SaleryMonth { get; set; }
+        [Required]
+        public string SalaryYear { get; set; }
+    }
 }
