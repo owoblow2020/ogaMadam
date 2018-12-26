@@ -119,7 +119,6 @@ namespace ogaMadamProject.Controllers
 
 
         [HttpPost]
-        [AllowAnonymous]
         public IHttpActionResult EmployeeLogin(EmployeeLoginDto requestParam)
         {
             try
@@ -144,6 +143,27 @@ namespace ogaMadamProject.Controllers
             {
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
             }
+        }
+
+        [HttpGet]
+        public IHttpActionResult ListVerifyEmployee()
+        {
+            var verifyEmployees = util.ListVerifyEmployee();
+            if (verifyEmployees.Count() == 0)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No Employee found")));
+            }
+
+            return Ok(SuccessResponse(200, "successful", verifyEmployees));
+            //try
+            //{
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            //}
         }
 
         private ErorrMessage ErrorResponse(int num, string msg)

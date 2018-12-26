@@ -222,6 +222,44 @@ namespace ogaMadamProject.Models
             
         }
 
+        public IList<EmployeeDto> ListVerifyEmployee()
+        {
+            var users = _db2.AspNetUsers.ToList();
+            IList<EmployeeDto> userList = new List<EmployeeDto>();
+            foreach (var user in users)
+            {
+                var id = user.Id;
+                if (user.Employee != null && user.Employee.IsUserVerified == true)
+                {
+                    var list = new EmployeeDto()
+                    {
+                        Id = user.Id,
+                        Address = user.Address,
+                        DateOfBirth = user.DateOfBirth.ToString(),
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        MiddleName = user.MiddleName,
+                        PhoneNumber = user.PhoneNumber,
+                        PlaceOfBirth = user.PlaceOfBirth,
+                        StateOfOrigin = user.StateOfOrigin
+                    };
+
+                    if (user.Sex == SexType.Male)
+                    {
+                        list.Sex = "Male";
+                    }
+                    else
+                    {
+                        list.Sex = "Female";
+                    }
+                    userList.Add(list);
+                }
+            }
+            return userList;
+
+        }
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
