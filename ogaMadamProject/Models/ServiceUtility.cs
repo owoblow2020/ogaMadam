@@ -361,6 +361,50 @@ namespace ogaMadamProject.Models
 
         }
 
+        public IList<EmployerDto> ListEmployer()
+        {
+            var users = _db2.AspNetUsers.ToList();
+            IList<EmployerDto> userList = new List<EmployerDto>();
+            foreach (var user in users)
+            {
+                if (user.Employer != null)
+                {
+                    var list = new EmployerDto()
+                    {
+                        Id = user.Id,
+                        Address = user.Address,
+                        DateOfBirth = user.DateOfBirth.ToString(),
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        MiddleName = user.MiddleName,
+                        PhoneNumber = user.PhoneNumber,
+                        PlaceOfBirth = user.PlaceOfBirth,
+                        StateOfOrigin = user.StateOfOrigin,
+
+                        EmploymentIdNumber = user.Employer.EmploymentIdNumber,
+                        NextOfKin = user.Employer.NextOfKin,
+                        NextOfKinAddress = user.Employer.NextOfKinAddress,
+                        NextOfKinPhoneNumber = user.Employer.NextOfKinPhoneNumber,
+                        PlaceOfWork = user.Employer.PlaceOfWork,
+                        Profession = user.Employer.Profession
+                    };
+
+                    if (user.Sex == SexType.Male)
+                    {
+                        list.Sex = "Male";
+                    }
+                    else
+                    {
+                        list.Sex = "Female";
+                    }
+                    userList.Add(list);
+                }
+            }
+            return userList;
+
+        }
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)

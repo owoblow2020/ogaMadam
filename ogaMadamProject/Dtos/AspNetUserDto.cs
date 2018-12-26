@@ -58,6 +58,30 @@ namespace ogaMadamProject.Dtos
 
     }
 
+    public class EmployerDto
+    {
+
+        public string Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public string MiddleName { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public string Sex { get; set; }
+        public string StateOfOrigin { get; set; }
+        public string PlaceOfWork { get; set; }
+        public string EmploymentIdNumber { get; set; }
+        public string NextOfKin { get; set; }
+        public string NextOfKinPhoneNumber { get; set; }
+        public string NextOfKinAddress { get; set; }
+        public string Profession { get; set; }
+
+    }
+
     public class CategoryDto
     {
         public string CategoryId { get; set; }
