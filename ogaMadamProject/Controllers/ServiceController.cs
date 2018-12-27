@@ -227,6 +227,27 @@ namespace ogaMadamProject.Controllers
             }
         }
 
+
+        [HttpGet]
+        public IHttpActionResult AttachedEmployee(string EmployerId)
+        {
+            try
+            {
+
+                var listEmployee = util.AttachedEmployee(EmployerId);
+                if (listEmployee.Count() == 0)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No transaction found")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", listEmployee));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
         [HttpGet]
         public IHttpActionResult ListEmployer()
         {

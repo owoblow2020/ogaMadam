@@ -287,6 +287,68 @@ namespace ogaMadamProject.Models
 
         }
 
+        public IList<EmployeeDto> AttachedEmployee(string employerId)
+        {
+            IList<EmployeeDto> employDtoList = new List<EmployeeDto>();
+            var employeeList = _db2.Employees.Where(o => o.EmployerId == employerId).ToList();
+            if (employDtoList == null)
+            {
+                return null;
+            }
+            foreach (var item in employeeList)
+            {
+                var employ = new EmployeeDto()
+                {
+                    AccountName = item.AccountName,
+                    AccountNumber = item.AccountNumber,
+                    Address = item.AspNetUser.Address,
+                    AttachedDate = item.AttachedDate,
+                    BankName = item.BankName,
+                    BVN = item.BVN,
+                    DateOfBirth = item.AspNetUser.DateOfBirth.ToString(),
+                    Email = item.AspNetUser.Email,
+                    FirstName = item.AspNetUser.FirstName,
+                    IsAttachedApproved = item.IsAttachedApproved,
+                    LastName = item.AspNetUser.LastName,
+                    MiddleName = item.AspNetUser.MiddleName,
+                    PhoneNumber = item.AspNetUser.PhoneNumber,
+                    Id = item.EmployeeId,
+                    NIMC = item.NIMC,
+                    PlaceOfBirth = item.AspNetUser.PlaceOfBirth,
+                    StateOfOrigin = item.AspNetUser.StateOfOrigin,
+                    SalaryAmount = item.SalaryAmount,
+                    IsInterviewed = item.IsInterviewed,
+                    IsTrained = item.IsTrained,
+                    IsUserVerified = item.IsUserVerified
+                     
+                };
+                switch (item.QualificationType)
+                {
+                    case QualificationType.Ssce:
+                        employ.QualificationType = "Ssce";
+                        break;
+                    case QualificationType.Ond:
+                        employ.QualificationType = "Ond";
+                        break;
+                    case QualificationType.Hnd:
+                        employ.QualificationType = "Hnd";
+                        break;
+                    case QualificationType.Bsc:
+                        employ.QualificationType = "Bsc";
+                        break;
+                    case QualificationType.Msc:
+                        employ.QualificationType = "Msc";
+                        break;
+                    default:
+                        break;
+                }
+
+                employDtoList.Add(employ);
+            }
+
+            return employDtoList;
+        }
+
         public IEnumerable<TransactionDto> ListTransaction()
         {
             IList<TransactionDto> transDtoList = new List<TransactionDto>();
@@ -296,8 +358,8 @@ namespace ogaMadamProject.Models
                 var transDto = new TransactionDto()
                 {
                   Amount = item.Amount.ToString(),
-                  EmployeeId = getUserDetails(item.Employee.EmployeeId),
-                  EmployerId = getUserDetails(item.Employer.EmployerId),
+                  EmployeeId = getUserName(item.Employee.EmployeeId),
+                  EmployerId = getUserName(item.Employer.EmployerId),
                   EndDate = item.Salary.EndDate.ToString(),
                   PaymentCategory = item.PaymentCategory,
                   StartDate = item.Salary.StartDate.ToString(),
@@ -340,7 +402,7 @@ namespace ogaMadamProject.Models
             return transDtoList;
         }
 
-        private string getUserDetails(string id)
+        private string getUserName(string id)
         {
             var user = _db2.AspNetUsers.FirstOrDefault(o=>o.Id == id);
             return user.FirstName + " " + user.LastName;
