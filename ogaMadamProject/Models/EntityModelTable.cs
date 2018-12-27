@@ -97,6 +97,8 @@ namespace ogaMadamProject.Models
 
         [ForeignKey(nameof(EmployeeId))]
         public virtual Employee Employee { get; set; }
+
+        public virtual Salary Salary { get; set; }
     }
 
     public class Review
@@ -199,13 +201,13 @@ namespace ogaMadamProject.Models
     public class Salary
     {
         [Key]
+        [ForeignKey("Transaction")]
         public string SalaryId { get; set; }
         public string EmployeeId { get; set; }
         public string EmployerId { get; set; }
         public decimal TotalAmount { get; set; }
-        public int Day { get; set; }
-        public int Month { get; set; }
-        public int Year { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public DateTime CreatedAt { get; set; }
 
         [ForeignKey(nameof(EmployeeId))]
@@ -213,6 +215,8 @@ namespace ogaMadamProject.Models
 
         [ForeignKey(nameof(EmployerId))]
         public virtual Employer Employer { get; set; }
+
+        public virtual Transaction Transaction { get; set; }
 
     }
 

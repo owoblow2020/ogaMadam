@@ -208,6 +208,26 @@ namespace ogaMadamProject.Controllers
         }
 
         [HttpGet]
+        public IHttpActionResult ListTransaction()
+        {
+            try
+            {
+
+                var listTrans = util.ListTransaction();
+                if (listTrans.Count() == 0)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No transaction found")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", listTrans));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
+        [HttpGet]
         public IHttpActionResult ListEmployer()
         {
             try

@@ -163,10 +163,8 @@ namespace ogaMadamProject.Dtos
         [Required]
         public string EmployerId { get; set; }
         [Required]
-        public string SalaryDay { get; set; }
+        public string EndDate { get; set; }
         [Required]
-        public string SaleryMonth { get; set; }
-        [Required]
-        public string SalaryYear { get; set; }
+        public string StartDate { get; set; }
     }
 }

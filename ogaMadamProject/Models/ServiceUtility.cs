@@ -272,9 +272,8 @@ namespace ogaMadamProject.Models
                 {
                     EmployeeId = requestParam.EmployeeId,
                     EmployerId = requestParam.EmployerId,
-                    Month = Convert.ToInt32(requestParam.SaleryMonth),
-                    Day = Convert.ToInt32(requestParam.SalaryDay),
-                    Year = Convert.ToInt32(requestParam.SalaryYear),
+                    StartDate = Convert.ToDateTime(requestParam.StartDate),
+                    EndDate = Convert.ToDateTime(requestParam.EndDate),
                     TotalAmount = Convert.ToDecimal(requestParam.Amount),
                     SalaryId = requestParam.TransactionId,
                     CreatedAt = DateTime.Now
@@ -286,6 +285,65 @@ namespace ogaMadamProject.Models
             }
             return false;
 
+        }
+
+        public IEnumerable<TransactionDto> ListTransaction()
+        {
+            IList<TransactionDto> transDtoList = new List<TransactionDto>();
+            var trans = _db2.Transactions.ToList();
+            foreach (var item in trans)
+            {
+                var transDto = new TransactionDto()
+                {
+                  Amount = item.Amount.ToString(),
+                  EmployeeId = getUserDetails(item.Employee.EmployeeId),
+                  EmployerId = getUserDetails(item.Employer.EmployerId),
+                  EndDate = item.Salary.EndDate.ToString(),
+                  PaymentCategory = item.PaymentCategory,
+                  StartDate = item.Salary.StartDate.ToString(),
+                  TransactionDate = item.TransactionDate.ToString(),
+                  TransactionId = item.TransactionId
+                };
+
+                switch (item.PaymentChannel)
+                {
+                    case PaymentChannelType.Web:
+                        transDto.PaymentChannel = "Web";
+                        break;
+                    case PaymentChannelType.Pos:
+                        transDto.PaymentChannel = "Pos";
+                        break;
+                    case PaymentChannelType.Cash:
+                        transDto.PaymentChannel = "Cash";
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (item.PaymentStatus)
+                {
+                    case PaymentStatus.Failed:
+                        transDto.PaymentStatus = "Failed";
+                        break;
+                    case PaymentStatus.Successful:
+                        transDto.PaymentStatus = "Successful";
+                        break;
+                    case PaymentStatus.pending:
+                        transDto.PaymentStatus = "pending";
+                        break;
+                    default:
+                        break;
+                }
+
+                transDtoList.Add(transDto);
+            }
+            return transDtoList;
+        }
+
+        private string getUserDetails(string id)
+        {
+            var user = _db2.AspNetUsers.FirstOrDefault(o=>o.Id == id);
+            return user.FirstName + " " + user.LastName;
         }
 
         public IList<EmployeeDto> ListEmployee()

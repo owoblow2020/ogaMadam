@@ -226,3 +226,9 @@ New Log Entry:
 {"TransactionId":"12345667","TransactionDate":"2018/12/23","Amount":"20000","PaymentCategory":"Payment of employee","PaymentStatus":"Successful","PaymentChannel":"Web","EmployeeId":"c7cbaa59-1bfb-484a-9e23-fd077196527e","EmployerId":"cf1dd186-d4ad-4536-9c31-9dd0ca62d997","SalaryDay":"03","SaleryMonth":"12","SalaryYear":"2018"}
 __________________________
  
+
+New Log Entry: 
+12/27/2018 5:05:15 AM
+{"TransactionId":"123456678","TransactionDate":"2018/12/23","Amount":"20000","PaymentCategory":"Payment of employee","PaymentStatus":"Successful","PaymentChannel":"Web","EmployeeId":"c7cbaa59-1bfb-484a-9e23-fd077196527e","EmployerId":"cf1dd186-d4ad-4536-9c31-9dd0ca62d997","EndDate":"2019/1/30","StartDate":"2018/12/30"}
+__________________________
+ 
