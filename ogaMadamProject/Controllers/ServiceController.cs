@@ -268,6 +268,26 @@ namespace ogaMadamProject.Controllers
             }
         }
 
+        [HttpGet]
+        public IHttpActionResult ListSalary()
+        {
+            try
+            {
+
+                var listSalary = util.ListSalary();
+                if (listSalary.Count() == 0)
+                {
+                    return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ErrorResponse(404, "No Salary found")));
+                }
+
+                return Ok(SuccessResponse(200, "successful", listSalary));
+            }
+            catch (Exception ex)
+            {
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.InternalServerError, ErrorResponse(500, ex.Message.ToString())));
+            }
+        }
+
         private ErorrMessage ErrorResponse(int num, string msg)
         {
             var error = new ErorrMessage()

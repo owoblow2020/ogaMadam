@@ -349,6 +349,32 @@ namespace ogaMadamProject.Models
             return employDtoList;
         }
 
+        public IList<SalaryDto> ListSalary()
+        {
+            IList<SalaryDto> salaryDtoList = new List<SalaryDto>();
+            var salaries = _db2.Salaries.ToList();
+            if (salaries == null)
+            {
+                return null;
+            }
+            foreach (var item in salaries)
+            {
+                var salary = new SalaryDto()
+                {
+                    Amount = item.TotalAmount.ToString(),
+                    Employee = item.Employee.AspNetUser.FirstName,
+                    Employer = item.Employer.AspNetUser.FirstName,
+                    EndDate = item.EndDate.ToString(),
+                    SalaryId = item.SalaryId,
+                    StartDate = item.StartDate.ToString()
+                };
+
+                salaryDtoList.Add(salary);
+            }
+
+            return salaryDtoList;
+        }
+
         public IEnumerable<TransactionDto> ListTransaction()
         {
             IList<TransactionDto> transDtoList = new List<TransactionDto>();

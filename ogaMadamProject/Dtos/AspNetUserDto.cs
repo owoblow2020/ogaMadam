@@ -167,4 +167,14 @@ namespace ogaMadamProject.Dtos
         [Required]
         public string StartDate { get; set; }
     }
+
+    public class SalaryDto
+    {
+        public string SalaryId { get; set; }
+        public string Employee { get; set; }
+        public string Employer { get; set; }
+        public string Amount { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+    }
 }
